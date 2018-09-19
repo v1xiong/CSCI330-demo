@@ -1,6 +1,9 @@
 import java.util.ArrayList;
+import java.util.Random;
 
 public class NumberBucket {
+    private static Random randomGen = new Random();
+
     private ArrayList<Integer> bucket;
 
     public NumberBucket() {
@@ -17,5 +20,10 @@ public class NumberBucket {
             sum += x;
         }
         return sum / bucket.size();
+    }
+
+    public int drawRandom() {
+        int slot = randomGen.nextInt(bucket.size());
+        return bucket.get(slot);
     }
 }
